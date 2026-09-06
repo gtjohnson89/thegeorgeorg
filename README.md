@@ -17,6 +17,14 @@ python3 -m http.server 8766 --directory site
 fly deploy --ha=false
 ```
 
-App: `thegeorgeorg` (region `ord`). Custom domain certs: `thegeorgeorg.org` and `www.thegeorgeorg.org`.
+App: `thegeorgeorg` (region `ord`). Live at https://thegeorgeorg.org and https://www.thegeorgeorg.org.
 
-Outlook email DNS (MX / SPF / autodiscover) stays on GoDaddy and must not be removed when changing A / AAAA / www.
+| Type | Name | Value |
+|------|------|--------|
+| A | `@` | `66.241.124.24` |
+| AAAA | `@` | `2a09:8280:1::185:36b8:0` |
+| CNAME | `www` | `thegeorgeorg.fly.dev` |
+| CNAME | `_acme-challenge` | `thegeorgeorg.org.rk8dkd3.flydns.net` |
+| CNAME | `_acme-challenge.www` | `www.thegeorgeorg.org.rk8dkd3.flydns.net` |
+
+Outlook email DNS (MX / SPF / autodiscover / Microsoft 365 CNAMEs) stays on GoDaddy and must not be removed when changing A / AAAA / www.
